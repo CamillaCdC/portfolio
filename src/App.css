@@ -1,12 +1,22 @@
 * {
     box-sizing: border-box;
-}
-
-.game {
     text-align: center;
 }
 
+.game {
+    margin-top: 15px;
+}
+
 svg {
-    width: 95%;
-    height: 85vh;
+    width: 960px;
+    height: 690px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer p {
+    padding: 0 10px;
 }

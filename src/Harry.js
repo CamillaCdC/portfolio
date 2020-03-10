@@ -1,18 +1,115 @@
 import React from 'react'
-import Character from './Character'
 
 export default function Harry (props) {
 
-    return (
-        <Character
-            
-            width="5"
-            height="5"
-            fill="red"
-            x={props.x}
-            y={props.y}
-        />
+    const popUp = [props.x - 11, props.y - 15]
 
+    return ( 
+
+        <svg> 
+            <defs>
+                <pattern 
+                    id="harry" 
+                    patternUnits="objectBoundingBox" 
+                    width="100%" 
+                    height="100%"
+                >
+                    <image 
+                        xlinkHref={require(`./images/harry.png`)}
+                        width="60px" 
+                        height="69px"
+                    />
+                </pattern>  
+            </defs>  
+
+            <rect
+                width="60px"
+                height="69px"
+                fill={`url(#harry)`}
+                x={`${props.x}%`}
+                y={`${props.y}%`}
+            />
+
+            <svg display={props.popUpHarry}>
+                <rect
+                    x={`${popUp[0] - 1}%`} 
+                    y={`${popUp[1] - 3}%`}
+                    width="300px"
+                    height="120px"
+                    fill="none"
+                    stroke="black"
+                    strokeWidth="2px"
+                />
+                <text 
+                    x={`${popUp[0]}%`} 
+                    y={`${popUp[1]}%`}
+                >Hi there! I'm Harry Potter. 
+                    <tspan 
+                        x={`${popUp[0]}%`} 
+                        y={`${popUp[1] + (2.6 * 1)}%`}
+                    >I've heard about someone called Camilla</tspan>
+                    <tspan 
+                        x={`${popUp[0]}%`} 
+                        y={`${popUp[1] + (2.6 * 2)}%`}
+                    > Champion de Crespigny.</tspan>
+                    <tspan 
+                        x={`${popUp[0]}%`} 
+                        y={`${popUp[1] + (2.6 * 3)}%`}
+                    >My friends won't stop talking about her.</tspan>
+                    <tspan 
+                        x={`${popUp[0]}%`} 
+                        y={`${popUp[1] + (2.6 * 4)}%`}
+                    >Lets go talk to them to find out more</tspan>
+                    <tspan 
+                        x={`${popUp[0]}%`} 
+                        y={`${popUp[1] + (2.6 * 5)}%`}
+                    > about this mysterious software engineer.</tspan>                
+                </text>
+            </svg>
+
+            <svg display={props.popUpInstrctions}>
+                <rect
+                    x={`${popUp[0] - 1}%`} 
+                    y={`${popUp[1] + 27}%`}
+                    width="300px"
+                    height="135px"
+                    fill="none"
+                    stroke="black"
+                    strokeWidth="2px"
+                />
+                <text 
+                    x={`${popUp[0]}%`} 
+                    y={`${popUp[1] + 30}%`}
+                >
+                    Use your arrow keys to move me around
+                    <tspan
+                        x={`${popUp[0]}%`} 
+                        y={`${popUp[1] + 30 + (2.6 * 1)}%`}
+                    > the board.</tspan>
+                    <tspan
+                        x={`${popUp[0]}%`} 
+                        y={`${popUp[1] + 30 + (2.6 * 2)}%`}
+                    >My Friends will speak when I bump into</tspan>
+                    <tspan
+                        x={`${popUp[0]}%`} 
+                        y={`${popUp[1] + 30 + (2.6 * 3)}%`}
+                    > them.</tspan>
+                    <tspan
+                        x={`${popUp[0]}%`} 
+                        y={`${popUp[1] + 30 + (2.6 * 4)}%`}
+                    >To see these instructions again, click the</tspan>
+                    <tspan
+                        x={`${popUp[0]}%`} 
+                        y={`${popUp[1] + 30 + (2.6 * 5)}%`}
+                    > Instructions button below the board.</tspan>
+                    <tspan
+                        x={`${popUp[0]}%`} 
+                        y={`${popUp[1] + 30 + (2.6 * 6)}%`}
+                    >To hide, use any arrow key.</tspan>
+                </text>
+            </svg>
+        </svg>
     )
-
 }
+
+

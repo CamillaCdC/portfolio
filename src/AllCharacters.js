@@ -1,103 +1,136 @@
 import React from 'react';
 import Character from './Character'
 import Harry from './Harry'
+import PopUp from './PopUp'
 
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 
 const characters = {
-    Ron: {x: 30, y: 30}, 
-    Hermione: {x: 70, y: 70}
+    ron: {x: 25, y: 40}, 
+    hermione: {x: 75, y: 70}, 
+    dumbledoor: {x: 62.5, y: 10}, 
+    luna: {x: 12.5, y: 80}, 
+    hedwig: {x: 81.25, y: 30}
 }
+const ron = Object.values(characters.ron).toString()
+const hermione = Object.values(characters.hermione).toString()
+const dumbledoor = Object.values(characters.dumbledoor).toString()
+const luna = Object.values(characters.luna).toString()
+const hedwig = Object.values(characters.hedwig).toString()
 
 class AllCharacters extends React.Component { 
 
     state = {
         xHarry: 50,
         yHarry: 50, 
+        popUpHarry: "",
+        popUpInstrctions: "",
         popUpRon: "none", 
-        popUpHermione: "none"
+        popUpHermione: "none", 
+        popUpDumbledoor: "none", 
+        popUpLuna: "none", 
+        popUpHedwig: "none"
     }
 
     popUpDisplay = (x, y) => {
-        const Ron = Object.values(characters.Ron).toString()
-        const Hermione = Object.values(characters.Hermione).toString()
-
+        
         var harry = [x, y].toString()
 
-        if (Ron === harry) {
+        if (ron === harry) {
             this.setState({
                 popUpRon: ""
             }) 
-        } 
-        if (Hermione === harry) {
+        } else if (hermione === harry) {
             this.setState({
                 popUpHermione: ""
+            })
+        } else if (dumbledoor === harry) {
+            this.setState({
+                popUpDumbledoor: ""
+            })
+        } else if (luna === harry) {
+            this.setState({
+                popUpLuna: ""
+            })
+        } else if (hedwig === harry) {
+            this.setState({
+                popUpHedwig: ""
             })
         }
     }
 
     onKeyDown = (key, e) => {
-
-        const coOrds = Object.values(characters)
         
-        const characterXs = []
-        const characterYs = []
-        
-        coOrds.forEach(coOrd => {
-            characterXs.push(coOrd.x)
-            characterYs.push(coOrd.y)
-        });
-
         this.setState({
+            popUpHarry: "none",
+            popUpInstrctions: "none",
             popUpRon: "none", 
-            popUpHermione: "none"
-        })       
+            popUpHermione: "none", 
+            popUpDumbledoor: "none", 
+            popUpLuna: "none", 
+            popUpHedwig: "none"
+        })   
 
-        if (key === "right" && this.state.xHarry < 95) {
+        var harry = [this.state.xHarry, this.state.yHarry]
+
+        if (key === "right" && harry[0] < 93.75) {
+            var harryRight = [harry[0] + 6.25, harry[1]].toString()
             if (
-                characterXs.includes(this.state.xHarry + 5) === true && 
-                characterYs.includes(this.state.yHarry) === true
+                    harryRight === hermione ||
+                    harryRight === ron ||
+                    harryRight === dumbledoor ||
+                    harryRight === luna ||
+                    harryRight === hedwig
                 ) {              
-                this.popUpDisplay(this.state.xHarry + 5, this.state.yHarry)
+                this.popUpDisplay(harry[0] + 6.25, harry[1])
             } else {
                 this.setState({
-                    xHarry: this.state.xHarry + 5
+                    xHarry: harry[0] + 6.25
                 })
             }
-        }
-        if (key === "left" && this.state.xHarry > 0 ) {
+        } else if (key === "left" && harry[0] > 0 ) {
+            var harryLeft = [harry[0] - 6.25, harry[1]].toString()
             if (
-                characterXs.includes(this.state.xHarry - 5) === true &&
-                characterYs.includes(this.state.yHarry) === true
+                    harryLeft === hermione ||
+                    harryLeft === ron || 
+                    harryLeft === dumbledoor ||
+                    harryLeft === luna ||
+                    harryLeft === hedwig
                 ) {
-                this.popUpDisplay(this.state.xHarry - 5, this.state.yHarry)
+                this.popUpDisplay(harry[0] - 6.25, harry[1])
             } else {
                 this.setState({
-                    xHarry: this.state.xHarry - 5
+                    xHarry: harry[0] - 6.25
                 })
             }
-        }
-        if (key === "down" && this.state.yHarry < 95) {
+        } else if (key === "down" && harry[1] < 90) {
+            var harryDown = [harry[0], harry[1] + 10].toString()
             if (
-                characterXs.includes(this.state.xHarry) === true &&
-                characterYs.includes(this.state.yHarry + 5) === true
+                    harryDown === hermione ||
+                    harryDown === ron ||
+                    harryDown === dumbledoor ||
+                    harryDown === luna ||
+                    harryDown === hedwig
                 ) {
-                this.popUpDisplay(this.state.xHarry, this.state.yHarry + 5)
+                this.popUpDisplay(harry[0], harry[1] + 10)
             } else {
                 this.setState({
-                    yHarry: this.state.yHarry + 5
+                    yHarry: harry[1] + 10
                 })
             }
-        }
-        if (key === "up" && this.state.yHarry > 0) {
+        } else if (key === "up" && harry[1] > 0) {
+            var harryUp = [harry[0], harry[1] - 10].toString()
             if (
-                characterXs.includes(this.state.xHarry) === true &&
-                characterYs.includes(this.state.yHarry - 5) === true
+                    harryUp === hermione ||
+                    harryUp === ron ||
+                    harryUp === dumbledoor ||
+                    harryUp === luna ||
+                    harryUp === hedwig
                 ) {
-                this.popUpDisplay(this.state.xHarry, this.state.yHarry - 5)
+                this.popUpDisplay(harry[0], harry[1] - 10)
             } else {
                 this.setState({
-                    yHarry: this.state.yHarry - 5
+                    yHarry: harry[1] - 10
                 })
             }
         }
@@ -105,7 +138,6 @@ class AllCharacters extends React.Component {
         
     render() {
         return (
-
             <div className="game">
 
                 <KeyboardEventHandler
@@ -114,11 +146,7 @@ class AllCharacters extends React.Component {
                         this.onKeyDown(key, e)
                         }} 
                 />
-
-                {/* <p style={{display: this.state.popUpRon}}>
-                    this is a test paragraph
-                </p> */}
-
+                    
                 <svg>
                     <rect
                         className="board"
@@ -131,49 +159,91 @@ class AllCharacters extends React.Component {
                         onKeyDown={this.onKeyDown}
                         x={this.state.xHarry}
                         y={this.state.yHarry}
+                        popUpHarry={this.state.popUpHarry}
+                        popUpInstrctions={this.state.popUpInstrctions}
                     />
 
                     <Character
-                        className="Ron"
-                        width="5"
-                        height="5"
-                        fill="blue"
-                        x={characters.Ron.x}
-                        y={characters.Ron.y}
+                        character="ron"
+                        x={characters.ron.x}
+                        y={characters.ron.y}
                     />
-
-                    <rect
-                        className="popUpRon"
-                        width="50px"
-                        height="50px"
-                        fill="lightblue"
-                        x={`${characters.Ron.x + 5}%`}
-                        y={`${characters.Ron.y - 7.5}%`}
+                    <PopUp
+                        x={characters.ron.x}
+                        y={characters.ron.y}
                         display={this.state.popUpRon}
+                        text="Contact Info"
+                        fill="pink"
                     />
 
                     <Character
-                        width="5"
-                        height="5"
-                        fill="green"
-                        x={characters.Hermione.x}
-                        y={characters.Hermione.y}
+                        character="hermione"
+                        x={characters.hermione.x}
+                        y={characters.hermione.y}
+                    />
+                    <PopUp
+                        x={characters.hermione.x}
+                        y={characters.hermione.y}
+                        display={this.state.popUpHermione}
+                        text="Projects"
+                        fill="lightgreen"
                     />
 
-                    <rect
-                        className="popUpHermione"
-                        width="50px"
-                        height="50px"
-                        fill="lightgreen"
-                        x={`${characters.Hermione.x + 5}%`}
-                        y={`${characters.Hermione.y - 7.5}%`}
-                        display={this.state.popUpHermione}
+                    <Character
+                        character="dumbledoor"
+                        x={characters.dumbledoor.x}
+                        y={characters.dumbledoor.y}
+                    />
+                    <PopUp
+                        x={characters.dumbledoor.x}
+                        y={characters.dumbledoor.y}
+                        display={this.state.popUpDumbledoor}
+                        text="CV"
+                        fill="lightblue"
+                    />
+
+                    <Character
+                        character="luna"
+                        x={characters.luna.x}
+                        y={characters.luna.y}
+                    />
+                    <PopUp
+                        x={characters.luna.x}
+                        y={characters.luna.y}
+                        display={this.state.popUpLuna}
+                        text="Random fact"
+                        fill="violet"                    
+                    />
+
+                    <Character
+                        character="hedwig"
+                        x={characters.hedwig.x}
+                        y={characters.hedwig.y}
+                    />
+                    <PopUp
+                        x={characters.hedwig.x}
+                        y={characters.hedwig.y}
+                        display={this.state.popUpHedwig}
+                        text="Hoo is Camilla?"
+                        fill="white"
                     />
 
                 </svg>
+
+                <footer>
+                    <p><button onClick={() => {
+                        this.setState({
+                            popUpInstrctions: ""
+                        })
+                    }}>Instructions</button></p>
+                    <p>|</p>
+                    <p>&copy; Camilla Champion de Crespigny 2020</p>
+                </footer>
             </div>
+
         )
     }
 }
 
 export default AllCharacters;
+
