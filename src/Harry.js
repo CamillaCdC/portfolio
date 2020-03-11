@@ -107,7 +107,7 @@ export default function Harry (props) {
                     <tspan
                         x={`${popUp[0]}%`} 
                         dy="2.6%"
-                    >To hide, use any arrow key.</tspan>
+                    >To hide, use any key.</tspan>
                 </text>
             </svg>
         </svg>

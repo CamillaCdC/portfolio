@@ -69,7 +69,7 @@ class RonFunctionality extends React.Component {
                     strokeWidth="2px"
                     fill="black"
                 />
-
+                
                 <text
                     display={this.state.detailsDisplay}
                     x={`${240 + 10}px`}
