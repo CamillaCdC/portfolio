@@ -1,16 +1,22 @@
-import React from 'react';
+import React from 'react'
 import Character from './Character'
 import Harry from './Harry'
-import PopUp from './PopUp'
+import RonFunctionality from './CharacterFunctionality/RonFunctionality'
+import HermioneFunctionality from './CharacterFunctionality/HermioneFunctionality'
+import DumbledoorFunctionality from './CharacterFunctionality/DumbledoorFunctionality'
+import LunaFunctionality from './CharacterFunctionality/LunaFunctionality'
+import HedwigFunctionality from './CharacterFunctionality/HedwigFunctionality'
 
 import KeyboardEventHandler from 'react-keyboard-event-handler';
+
+import './AllCharacters.css';
 
 const characters = {
     ron: {x: 25, y: 40}, 
     hermione: {x: 75, y: 70}, 
-    dumbledoor: {x: 62.5, y: 10}, 
+    dumbledoor: {x: 56.25, y: 20}, 
     luna: {x: 12.5, y: 80}, 
-    hedwig: {x: 81.25, y: 30}
+    hedwig: {x: 75, y: 30}
 }
 const ron = Object.values(characters.ron).toString()
 const hermione = Object.values(characters.hermione).toString()
@@ -25,7 +31,7 @@ class AllCharacters extends React.Component {
         yHarry: 50, 
         popUpHarry: "",
         popUpInstrctions: "",
-        popUpRon: "none", 
+        popUpRon: "none",
         popUpHermione: "none", 
         popUpDumbledoor: "none", 
         popUpLuna: "none", 
@@ -64,7 +70,8 @@ class AllCharacters extends React.Component {
         this.setState({
             popUpHarry: "none",
             popUpInstrctions: "none",
-            popUpRon: "none", 
+            popUpRon: "none",
+            Ron: "", 
             popUpHermione: "none", 
             popUpDumbledoor: "none", 
             popUpLuna: "none", 
@@ -145,16 +152,15 @@ class AllCharacters extends React.Component {
                     onKeyEvent={(key, e) => {
                         this.onKeyDown(key, e)
                         }} 
-                />
-                    
-                <svg>
+                />                 
+
+                <svg className="board">            
                     <rect
-                        className="board"
                         width="100%" 
                         height="100%" 
                         fill="lightgray"
                     />
-
+                
                     <Harry 
                         onKeyDown={this.onKeyDown}
                         x={this.state.xHarry}
@@ -164,70 +170,46 @@ class AllCharacters extends React.Component {
                     />
 
                     <Character
+                        character="dumbledoor"
+                        x={characters.dumbledoor.x}
+                        y={characters.dumbledoor.y}
+                    />                 
+                    <Character
                         character="ron"
                         x={characters.ron.x}
                         y={characters.ron.y}
-                    />
-                    <PopUp
-                        x={characters.ron.x}
-                        y={characters.ron.y}
-                        display={this.state.popUpRon}
-                        text="Contact Info"
-                        fill="pink"
-                    />
-
+                    />                                      
                     <Character
                         character="hermione"
                         x={characters.hermione.x}
                         y={characters.hermione.y}
-                    />
-                    <PopUp
-                        x={characters.hermione.x}
-                        y={characters.hermione.y}
-                        display={this.state.popUpHermione}
-                        text="Projects"
-                        fill="lightgreen"
-                    />
-
-                    <Character
-                        character="dumbledoor"
-                        x={characters.dumbledoor.x}
-                        y={characters.dumbledoor.y}
-                    />
-                    <PopUp
-                        x={characters.dumbledoor.x}
-                        y={characters.dumbledoor.y}
-                        display={this.state.popUpDumbledoor}
-                        text="CV"
-                        fill="lightblue"
-                    />
-
+                    />          
                     <Character
                         character="luna"
                         x={characters.luna.x}
                         y={characters.luna.y}
                     />
-                    <PopUp
-                        x={characters.luna.x}
-                        y={characters.luna.y}
-                        display={this.state.popUpLuna}
-                        text="Random fact"
-                        fill="violet"                    
-                    />
-
                     <Character
                         character="hedwig"
                         x={characters.hedwig.x}
                         y={characters.hedwig.y}
                     />
-                    <PopUp
-                        x={characters.hedwig.x}
-                        y={characters.hedwig.y}
-                        display={this.state.popUpHedwig}
-                        text="Hoo is Camilla?"
-                        fill="white"
-                    />
 
+                    <DumbledoorFunctionality
+                        display={this.state.popUpDumbledoor}
+                    />
+                    <HermioneFunctionality
+                        display={this.state.popUpHermione}
+                    /> 
+                    <RonFunctionality 
+                        display={this.state.popUpRon}
+                    />  
+                    <LunaFunctionality
+                        display={this.state.popUpLuna}
+                    />
+                    <HedwigFunctionality
+                        display={this.state.popUpHedwig}
+                    />
                 </svg>
 
                 <footer>
