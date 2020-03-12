@@ -157,10 +157,6 @@ class Game extends React.Component {
                         this.onKeyDown(key, e)
                     }} 
                 />  
-
-                <div >
-                    <p className="positionAbsolute">test ron pop up</p>
-                </div>
                
                 <svg 
                     className="board" 
@@ -184,17 +180,18 @@ class Game extends React.Component {
                     />
                     <HermioneFunctionality
                         display={this.state.popUpHermione}
-                    /> 
-                    <RonFunctionality 
-                        display={this.state.popUpRon}
-                    />  
+                    />                     
                     <LunaFunctionality
                         display={this.state.popUpLuna}
                     />
                     <HedwigFunctionality
                         display={this.state.popUpHedwig}
                     />
-                </svg>                                 
+                </svg> 
+                
+                    <RonFunctionality 
+                        display={this.state.popUpRon}
+                    />  
 
                 <footer>
                     <p><button onClick={() => {
