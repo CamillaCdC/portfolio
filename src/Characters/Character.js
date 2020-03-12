@@ -13,7 +13,7 @@ export default function Character (props) {
                     height="100%"
                 >
                     <image 
-                        xlinkHref={require(`./images/${props.character}.png`)}
+                        xlinkHref={require(`../images/${props.character}.png`)}
                         width="60px" 
                         height="69px"
                     />

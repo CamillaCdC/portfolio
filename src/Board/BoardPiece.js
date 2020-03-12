@@ -3,7 +3,6 @@ import React from 'react'
 export default function BoardPiece (props) {
 
     return (
-
         <svg>
             <defs>
                 <pattern 
@@ -13,7 +12,7 @@ export default function BoardPiece (props) {
                     height="100%"
                 >
                     <image 
-                        xlinkHref={require(`./images/${props.name}.png`)}
+                        xlinkHref={require(`../images/${props.name}.png`)}
                         width={`${props.width}px`}
                         height={`${props.height}px`}
                     />
@@ -27,7 +26,6 @@ export default function BoardPiece (props) {
                 width={`${props.width}px`}
                 height={`${props.height}px`}
             />
-        
         </svg>
     )
 

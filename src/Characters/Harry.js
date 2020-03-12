@@ -15,7 +15,7 @@ export default function Harry (props) {
                     height="100%"
                 >
                     <image 
-                        xlinkHref={require(`./images/harry.png`)}
+                        xlinkHref={require(`../images/harry.png`)}
                         width="60px" 
                         height="69px"
                     />
@@ -30,8 +30,7 @@ export default function Harry (props) {
                 y={`${props.y}%`}
             />
             
-            <svg display="none">
-            {/* <svg display={props.popUpHarry}> */}
+            <svg display={props.popUpHarry}>
                 <rect
                     x={`${popUp[0] - 1}%`} 
                     y={`${popUp[1] - 3}%`}
@@ -69,8 +68,7 @@ export default function Harry (props) {
                 </text>
             </svg>
             
-            <svg display="none">
-            {/* <svg display={props.popUpInstrctions}> */}
+            <svg display={props.popUpInstrctions}>
                 <rect
                     x={`${popUp[0] - 1}%`} 
                     y={`${popUp[1] + 27}%`}

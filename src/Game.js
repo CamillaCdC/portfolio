@@ -1,31 +1,24 @@
 import React from 'react'
-import Characters from './Characters'
-import BoardPiece from './BoardPiece'
-import Paths from './Paths.js'
-import Harry from './Harry'
+
+import Characters from './Characters/Characters'
+import Harry from './Characters/Harry'
+import './Characters/AllCharacters.css';
+import characters from './Characters/CharacterCoordinates'
+import checkCharacterPopUp from './Characters/CheckCharacterPopUp'
+
 import RonFunctionality from './CharacterFunctionality/RonFunctionality'
 import HermioneFunctionality from './CharacterFunctionality/HermioneFunctionality'
 import DumbledoorFunctionality from './CharacterFunctionality/DumbledoorFunctionality'
 import LunaFunctionality from './CharacterFunctionality/LunaFunctionality'
 import HedwigFunctionality from './CharacterFunctionality/HedwigFunctionality'
 
+import Board from './Board/Board'
+import cobblesCoordinates from './Board/CobblesCoordinates'
+
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 
-import './AllCharacters.css';
+import './App.css'
 
-const characters = {
-    ron: [25, 40], 
-    hermione: [75, 70], 
-    dumbledoor: [56.25, 20], 
-    luna: [12.5, 80], 
-    hedwig: [75, 30]
-}
-
-const ron = characters.ron.toString()
-const hermione = characters.hermione.toString()
-const dumbledoor = characters.dumbledoor.toString()
-const luna = characters.luna.toString()
-const hedwig = characters.hedwig.toString()
 
 class Game extends React.Component { 
 
@@ -38,34 +31,25 @@ class Game extends React.Component {
         popUpHermione: "none", 
         popUpDumbledoor: "none", 
         popUpLuna: "none", 
-        popUpHedwig: "none"
+        popUpHedwig: "none",
+        // boardZIndex: -1
     }
 
     popUpDisplay = ([x, y]) => {
-        
         var harry = [x, y].toString()
+        this.setState({
+            popUpRon: checkCharacterPopUp.checkPopUpForRon(harry),
+            popUpHermione: checkCharacterPopUp.checkPopUpForHermione(harry),
+            popUpDumbledoor: checkCharacterPopUp.checkPopUpForDumbledoor(harry), 
+            popUpLuna: checkCharacterPopUp.checkPopUpForLuna(harry), 
+            popUpHedwig: checkCharacterPopUp.checkPopUpForHedwig(harry)
+        }) 
 
-        if (ron === harry) {
-            this.setState({
-                popUpRon: ""
-            }) 
-        } else if (hermione === harry) {
-            this.setState({
-                popUpHermione: ""
-            })
-        } else if (dumbledoor === harry) {
-            this.setState({
-                popUpDumbledoor: ""
-            })
-        } else if (luna === harry) {
-            this.setState({
-                popUpLuna: ""
-            })
-        } else if (hedwig === harry) {
-            this.setState({
-                popUpHedwig: ""
-            })
-        }
+        // if (checkCharacterPopUp.checkPopUpForHermione(harry) === "") {
+        //     this.setState({
+        //         boardZIndex: 0
+        //     })
+        // }  
     }
 
     onKeyDown = (key, e) => {
@@ -74,79 +58,100 @@ class Game extends React.Component {
             popUpHarry: "none",
             popUpInstrctions: "none",
             popUpRon: "none",
-            Ron: "", 
             popUpHermione: "none", 
             popUpDumbledoor: "none", 
             popUpLuna: "none", 
-            popUpHedwig: "none"
+            popUpHedwig: "none", 
+            // boardZIndex: -1
         })   
 
         var harry = [this.state.xHarry, this.state.yHarry]
-
         const characterCoordinates = Object.values(characters)
-
         var result
 
         if (key === "right" && harry[0] < 93.75) {
             var harryRight = [harry[0] + 6.25, harry[1]]
-            characterCoordinates.forEach(coordinate => {
-                if (coordinate.toString() === harryRight.toString()) {
-                    result = coordinate
-                }                
+
+            cobblesCoordinates.forEach(cobble => {
+                var cobblePosition = [cobble[0] * 6.25, cobble[1] * 10]
+                if (harryRight.toString() === cobblePosition.toString()){
+                    characterCoordinates.forEach(coordinate => {
+                        if (coordinate.toString() === harryRight.toString()) {
+                            result = coordinate
+                        }                
+                    });
+                    if (result !== undefined) {
+                        this.popUpDisplay(harryRight)
+                    } else {
+                        this.setState({
+                            xHarry: harry[0] + 6.25
+                        })
+                    }
+                }
             });
-            if (result !== undefined) {
-                this.popUpDisplay(harryRight)
-            } else {
-                this.setState({
-                    xHarry: harry[0] + 6.25
-                })
-            }
 
         } else if (key === "left" && harry[0] > 0 ) {
             var harryLeft = [harry[0] - 6.25, harry[1]]
-            characterCoordinates.forEach(coordinate => {
-                if (coordinate.toString() === harryLeft.toString()) {
-                    result = coordinate
-                }                
+
+            cobblesCoordinates.forEach(cobble => {
+                var cobblePosition = [cobble[0] * 6.25, cobble[1] * 10]
+                if (harryLeft.toString() === cobblePosition.toString()){
+                    characterCoordinates.forEach(coordinate => {
+                        if (coordinate.toString() === harryLeft.toString()) {
+                            result = coordinate
+                        }                
+                    });
+                    if (result !== undefined) {
+                        this.popUpDisplay(harryLeft)
+                    } else {
+                        this.setState({
+                            xHarry: harry[0] - 6.25
+                        })
+                    }
+                }
             });
-            if (result !== undefined) {
-                this.popUpDisplay(harryLeft)
-            } else {
-                this.setState({
-                    xHarry: harry[0] - 6.25
-                })
-            }
             
         } else if (key === "down" && harry[1] < 90) {
             var harryDown = [harry[0], harry[1] + 10]
-            characterCoordinates.forEach(coordinate => {
-                if (coordinate.toString() === harryDown.toString()) {
-                    result = coordinate
-                }                
+
+            cobblesCoordinates.forEach(cobble => {
+                var cobblePosition = [cobble[0] * 6.25, cobble[1] * 10]
+                if (harryDown.toString() === cobblePosition.toString()){
+                    characterCoordinates.forEach(coordinate => {
+                        if (coordinate.toString() === harryDown.toString()) {
+                            result = coordinate
+                        }                
+                    });
+                    if (result !== undefined) {
+                        this.popUpDisplay(harryDown)
+                    } else {
+                        this.setState({
+                            yHarry: harry[1] + 10
+                        })
+                    }
+                }
             });
-            if (result !== undefined) {
-                this.popUpDisplay(harryDown)
-            } else {
-                this.setState({
-                    yHarry: harry[1] + 10
-                })
-            }
 
         } else if (key === "up" && harry[1] > 0) {
             var harryUp = [harry[0], harry[1] - 10]
-            characterCoordinates.forEach(coordinate => {
-                if (coordinate.toString() === harryUp.toString()) {
-                    result = coordinate
-                }                
+            
+            cobblesCoordinates.forEach(cobble => {
+                var cobblePosition = [cobble[0] * 6.25, cobble[1] * 10]
+                if (harryUp.toString() === cobblePosition.toString()){
+                    characterCoordinates.forEach(coordinate => {
+                        if (coordinate.toString() === harryUp.toString()) {
+                            result = coordinate
+                        }                
+                    });
+                    if (result !== undefined) {
+                        this.popUpDisplay(harryUp)
+                    } else {
+                        this.setState({
+                            yHarry: harry[1] - 10
+                        })
+                    }
+                }              
             });
-            if (result !== undefined) {
-                this.popUpDisplay(harryUp)
-            } else {
-                console.log(harryUp)
-                this.setState({
-                    yHarry: harry[1] - 10
-                })
-            }
         }
     }
         
@@ -158,27 +163,26 @@ class Game extends React.Component {
                     handleKeys={["all"]}
                     onKeyEvent={(key, e) => {
                         this.onKeyDown(key, e)
-                        }} 
-                />                 
+                    }} 
+                />  
 
-                <svg className="board"> 
-
-                    <Paths />           
-                    
-                    <BoardPiece
-                        name="hogwarts"
-                        width={364.5}
-                        height={209.25}
-                        x="0px"
-                        y="0px"
-                    />                    
-                    <BoardPiece
-                        name="willow"
-                        width={120}
-                        height={160}
-                        x="839px"
-                        y="526px"
-                    />                 
+                {/* <div position="absolute">
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                <p> 
+                    Ron Pop up
+                </p>               
+                </div> */}
+               
+                <svg 
+                    className="board" 
+                    // style={{ zIndex: this.state.boardZIndex}}
+                > 
+                    <Board />              
 
                     <Harry 
                         onKeyDown={this.onKeyDown}
@@ -207,16 +211,7 @@ class Game extends React.Component {
                     <HedwigFunctionality
                         display={this.state.popUpHedwig}
                     />
-
-                    <rect
-                        width="100%" 
-                        height="100%" 
-                        fill="none"
-                        stroke="black"
-                        strokeWidth="4px"
-                    />
-                    
-                </svg>
+                </svg>                                 
 
                 <footer>
                     <p><button onClick={() => {
