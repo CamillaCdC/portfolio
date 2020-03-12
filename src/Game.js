@@ -1,5 +1,7 @@
 import React from 'react'
 import Characters from './Characters'
+import BoardPiece from './BoardPiece'
+import Paths from './Paths.js'
 import Harry from './Harry'
 import RonFunctionality from './CharacterFunctionality/RonFunctionality'
 import HermioneFunctionality from './CharacterFunctionality/HermioneFunctionality'
@@ -140,6 +142,7 @@ class Game extends React.Component {
             if (result !== undefined) {
                 this.popUpDisplay(harryUp)
             } else {
+                console.log(harryUp)
                 this.setState({
                     yHarry: harry[1] - 10
                 })
@@ -158,13 +161,25 @@ class Game extends React.Component {
                         }} 
                 />                 
 
-                <svg className="board">            
-                    <rect
-                        width="100%" 
-                        height="100%" 
-                        fill="lightgray"
-                    />
-                
+                <svg className="board"> 
+
+                    <Paths />           
+                    
+                    <BoardPiece
+                        name="hogwarts"
+                        width={364.5}
+                        height={209.25}
+                        x="0px"
+                        y="0px"
+                    />                    
+                    <BoardPiece
+                        name="willow"
+                        width={120}
+                        height={160}
+                        x="839px"
+                        y="526px"
+                    />                 
+
                     <Harry 
                         onKeyDown={this.onKeyDown}
                         x={this.state.xHarry}
@@ -192,6 +207,15 @@ class Game extends React.Component {
                     <HedwigFunctionality
                         display={this.state.popUpHedwig}
                     />
+
+                    <rect
+                        width="100%" 
+                        height="100%" 
+                        fill="none"
+                        stroke="black"
+                        strokeWidth="4px"
+                    />
+                    
                 </svg>
 
                 <footer>

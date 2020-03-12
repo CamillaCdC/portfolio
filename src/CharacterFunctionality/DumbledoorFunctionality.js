@@ -27,7 +27,7 @@ class DumbledoorFunctionality extends React.Component {
                     x={`${textX}%`}
                     dy="2.6%"
                 >
-                    <a href="/cv.pdf" target="_blank" className="link">Click here</a>
+                    <a href="/cv.pdf" target="_blank" className="link" download>Click here</a>
                 </tspan>
             </tspan>
         )       

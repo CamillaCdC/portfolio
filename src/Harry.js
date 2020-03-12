@@ -29,8 +29,9 @@ export default function Harry (props) {
                 x={`${props.x}%`}
                 y={`${props.y}%`}
             />
-
-            <svg display={props.popUpHarry}>
+            
+            <svg display="none">
+            {/* <svg display={props.popUpHarry}> */}
                 <rect
                     x={`${popUp[0] - 1}%`} 
                     y={`${popUp[1] - 3}%`}
@@ -67,8 +68,9 @@ export default function Harry (props) {
                     > about this mysterious software engineer.</tspan>                
                 </text>
             </svg>
-
-            <svg display={props.popUpInstrctions}>
+            
+            <svg display="none">
+            {/* <svg display={props.popUpInstrctions}> */}
                 <rect
                     x={`${popUp[0] - 1}%`} 
                     y={`${popUp[1] + 27}%`}
