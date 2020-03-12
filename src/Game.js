@@ -31,8 +31,7 @@ class Game extends React.Component {
         popUpHermione: "none", 
         popUpDumbledoor: "none", 
         popUpLuna: "none", 
-        popUpHedwig: "none",
-        // boardZIndex: -1
+        popUpHedwig: "none"
     }
 
     popUpDisplay = ([x, y]) => {
@@ -43,13 +42,7 @@ class Game extends React.Component {
             popUpDumbledoor: checkCharacterPopUp.checkPopUpForDumbledoor(harry), 
             popUpLuna: checkCharacterPopUp.checkPopUpForLuna(harry), 
             popUpHedwig: checkCharacterPopUp.checkPopUpForHedwig(harry)
-        }) 
-
-        // if (checkCharacterPopUp.checkPopUpForHermione(harry) === "") {
-        //     this.setState({
-        //         boardZIndex: 0
-        //     })
-        // }  
+        })  
     }
 
     onKeyDown = (key, e) => {
@@ -61,8 +54,7 @@ class Game extends React.Component {
             popUpHermione: "none", 
             popUpDumbledoor: "none", 
             popUpLuna: "none", 
-            popUpHedwig: "none", 
-            // boardZIndex: -1
+            popUpHedwig: "none"
         })   
 
         var harry = [this.state.xHarry, this.state.yHarry]
@@ -166,21 +158,12 @@ class Game extends React.Component {
                     }} 
                 />  
 
-                {/* <div position="absolute">
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                <p> 
-                    Ron Pop up
-                </p>               
-                </div> */}
+                <div >
+                    <p className="positionAbsolute">test ron pop up</p>
+                </div>
                
                 <svg 
                     className="board" 
-                    // style={{ zIndex: this.state.boardZIndex}}
                 > 
                     <Board />              
 

@@ -1,17 +1,24 @@
 * {
     box-sizing: border-box;
-    text-align: center;
 }
 
-.game {
-    margin-top: 15px;
-}
+/* .game {
+    padding: 15px 15px;
+} */
 
 .board {
     width: 960px;
     height: 690px;
-    /* margin-top: -250px; */
+    z-index: -1;
     position: relative;
+}
+
+.positionAbsolute {
+    /* padding: 15px 15px; */
+    /* width: 960px; */
+    position: absolute;
+    top: 20%;
+    left: 20%;
 }
 
 footer {

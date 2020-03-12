@@ -8,8 +8,6 @@ import '../App.css'
 export default function Board (props) {
     return (
         <svg >
-            
-
             <rect
                 width="100%" 
                 height="100%" 
