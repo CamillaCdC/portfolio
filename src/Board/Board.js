@@ -20,10 +20,10 @@ export default function Board (props) {
                                 
             <BoardPiece
                 name="hogwarts"
-                width={364.5}
-                height={209.25}
+                width={354}
+                height={203}
                 x="0px"
-                y="0px"
+                y="2px"
             />                    
             <BoardPiece
                 name="willow"

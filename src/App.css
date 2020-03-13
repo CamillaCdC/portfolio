@@ -4,7 +4,7 @@
 
 .game {
     width: 960px;
-    margin: 15px auto;
+    margin: 10px auto;
     position: relative;
 }
 
@@ -17,23 +17,46 @@
 .popUps {
     position: absolute;
     width: 170px;
-    padding: 3px
+    padding: 3px;
+    border: 2px solid black;
+
 }
 
 .popUps p {
     margin: 0;
 }
 
-/* x + .5 */
-/* y - 8.5 */
 .popUpRon {
     top: 25.5%;
     left: 31.5%;
-    border: 2px solid black;
     background-color: #ed5132;
 }
 
-.contactDetails {
+.popUpLuna {
+    top: 53%;
+    left: 19%;
+    background-color: #f16274;
+}
+
+.popUpDumbledoor {
+    background-color: #a08fb1;
+    top: 7%;
+    left: 63%;
+}
+
+.popUpHedwig {
+    background-color: #efefef;
+    top: 16%;
+    left: 81.5%;
+}
+
+.popUpHermione {
+    background-color: #f9b145;
+    top: 50.5%;
+    left: 81.5%;
+}
+
+.detailsPopUp {
     position: absolute;
     background-color: black;
     color: white;
@@ -43,7 +66,7 @@
     height: 345px;
 }
 
-.contactDetails p {
+.detailsPopUp p {
     margin: 15px;
 }
 
@@ -51,6 +74,10 @@
     position: absolute;
     right: .5%;
     top: .5%;
+}
+
+form p {
+    margin: 15px;
 }
 
 footer {

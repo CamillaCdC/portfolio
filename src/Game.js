@@ -174,24 +174,24 @@ class Game extends React.Component {
                     <Characters 
                         charactersObject={characters}
                     />
+               
+                </svg> 
 
+                    <RonFunctionality 
+                        display={this.state.popUpRon}
+                    />  
+                    <LunaFunctionality
+                        display={this.state.popUpLuna}
+                    />
                     <DumbledoorFunctionality
                         display={this.state.popUpDumbledoor}
                     />
                     <HermioneFunctionality
                         display={this.state.popUpHermione}
                     />                     
-                    <LunaFunctionality
-                        display={this.state.popUpLuna}
-                    />
                     <HedwigFunctionality
                         display={this.state.popUpHedwig}
                     />
-                </svg> 
-                
-                    <RonFunctionality 
-                        display={this.state.popUpRon}
-                    />  
 
                 <footer>
                     <p><button onClick={() => {
