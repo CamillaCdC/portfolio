@@ -34,7 +34,9 @@ class Hedwig extends React.Component {
                     style={{ display: this.state.detailsDisplay }}
                 >
                     <button className="closePopUp" onClick={this.xClick}>x</button>
-                    <p>Camilla's personal brand</p> 
+                    <p>Message from Camilla:</p> 
+                    <p>I am a junior software engineer with a passion for creating well-tested, clean and easy to understand code that results in beautifully designed and intuitive user experiences. I enjoy working on projects that will have a positive impact upon people and the environment.</p>
+                    <p>I work best when I am being challenged and surrounded by a passionate team.</p>
                 </div>
             </div>
         )   

@@ -34,7 +34,11 @@ class HermioneFunctionality extends React.Component {
                     style={{ display: this.state.detailsDisplay }}
                 >
                     <button className="closePopUp" onClick={this.xClick}>x</button>
-                    <p>Camilla's Projects</p>
+                    <p>Camilla's GA Projects</p>
+                    <p>Project 1: <a href="https://github.com/CamillaCdC/tic-tac-toe">Harry Potter tic-tac-toe</a></p>
+                    <p>Project 2: <a href="https://github.com/CamillaCdC/whats-on-melbourne">CRUD app deployed on Heroku</a></p>
+                    <p>Project 3: <a href="https://github.com/tmak1/park-spectre-client">Park-Inspector App</a></p>
+                    <p>Project 2: Harry Potter portfolio website (you're here!)</p>
                 </div>
             </div>
         )   

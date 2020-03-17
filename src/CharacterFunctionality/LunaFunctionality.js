@@ -1,4 +1,5 @@
 import React from 'react'
+import RandomFacts from './RandomFacts'
 
 
 class LunaFunctionality extends React.Component {
@@ -36,6 +37,7 @@ class LunaFunctionality extends React.Component {
                 >
                     <button className="closePopUp" onClick={this.xClick}>x</button>
                     <p>Random Fact</p> 
+                    <p>{RandomFacts[[Math.floor(Math.random() * RandomFacts.length)]]}</p>
                 </div>
             
             </div>

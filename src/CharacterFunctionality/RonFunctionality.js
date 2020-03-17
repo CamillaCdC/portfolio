@@ -5,7 +5,6 @@ class RonFunctionality extends React.Component {
     
     state = {
         detailsDisplay: "none", 
-        emailFormDisplay: "none"
     }
 
     xClick = () => {
@@ -20,18 +19,6 @@ class RonFunctionality extends React.Component {
         }) 
     }
 
-    xClickEmail = () => {
-        this.setState({
-            emailFormDisplay: "none",
-        }) 
-    }
-
-    emailClick = () => {
-        this.setState({
-            emailFormDisplay: ""
-        })
-    }
-
     render () {
         return (
             <div>
@@ -40,25 +27,15 @@ class RonFunctionality extends React.Component {
                     style={{ display: this.props.display }}
                 >
                     <p>Hi Harry!</p>
-                    <p>Do you want Camilla's contact details?</p>
+                    <p>Do you want to send Camilla an owl?</p>
                     <button onClick={this.handleClickHere}>Click here.</button>             
                 </div> 
                 
-                <div 
+                <div
                     className="detailsPopUp"
                     style={{ display: this.state.detailsDisplay}}
                 >
                     <button className="closePopUp" onClick={this.xClick}>x</button>
-                    <p>Contact Details</p> 
-                    <p>cam**********gny@gmail.com</p>
-                    <p><button onClick={this.emailClick}>Contact Camilla Form</button></p>
-                </div> 
-
-                <div
-                    className="detailsPopUp"
-                    style={{ display: this.state.emailFormDisplay}}
-                >
-                    <button className="closePopUp" onClick={this.xClickEmail}>x</button>
                     <p>Contact Camilla Form</p>
                     
                     <Contact />

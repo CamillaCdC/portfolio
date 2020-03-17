@@ -24,9 +24,9 @@ export default function Contact() {
                     }
                 }
             );
-            // const json = await response.json();
-            // console.log("Success:", JSON.stringify(json));
-            setMessage("Message Sent");
+            const json = await response.json();
+            console.log("Success:", JSON.stringify(json));
+            setMessage("Owl Sent");
         } catch (error) {
             console.error("Error:", error);
             setMessage("Error");
@@ -42,42 +42,44 @@ export default function Contact() {
                 required
                 onSubmit={sendData}
             >
-            <p >
-            Your name:&ensp;
-                <input
-                    name="name" 
-                    type="text"
-                    placeholder="Harry Potter"
-                    required
-                    onChange={handleInput}
-                    style={{ width: "60%" }}
-                />
-            </p>
+                <p>
+                Your name:&ensp;
+                    <input
+                        name="name" 
+                        type="text"
+                        placeholder="Harry Potter"
+                        required
+                        onChange={handleInput}
+                        style={{ width: "60%" }}
+                    />
+                </p>
 
-            <p>
-            Your email:&ensp;
-                <input
-                    name="email"
-                    type="email"
-                    placeholder="harry_potter@hogwarts.com"
-                    required
-                    onChange={handleInput}
-                    style={{ width: "60%" }}
-                />
-            </p>
-            <p>
-                <textarea
-                    rows="12"
-                    cols="85"
-                    name="message"
-                    placeholder="Type your message here..."
-                    onChange={handleInput}
-                />
-            </p>
-            <p>
-                <input name="submit" type="submit" value="Send" />
-                {message}
-            </p>
+                <p>
+                Your email:&ensp;
+                    <input
+                        name="email"
+                        type="email"
+                        placeholder="harry_potter@hogwarts.com"
+                        required
+                        onChange={handleInput}
+                        style={{ width: "60%" }}
+                    />
+                </p>
+                
+                <p>
+                    <textarea
+                        rows="12"
+                        cols="85"
+                        name="message"
+                        placeholder="Type your message here..."
+                        onChange={handleInput}
+                    />
+                </p>
+                
+                <p>
+                    <input name="submit" type="submit" value="Send" />
+                    {message}
+                </p>
             </form>
         </div>
     );
