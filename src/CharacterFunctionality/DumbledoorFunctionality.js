@@ -11,7 +11,7 @@ class DumbledoorFunctionality extends React.Component {
                 >
                     <p>Hi Harry!</p>
                     <p>Do you want to see Camilla's CV?</p>
-                    <p><a href="/cv.pdf" download>Download it here.</a></p>
+                    <p><a href="../../cv.pdf" download>Download it here.</a></p>
                 </div>
             </div>           
         )   
