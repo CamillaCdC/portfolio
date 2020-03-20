@@ -20,6 +20,10 @@ class DumbledoorFunctionality extends React.Component {
         })
     }
 
+    // handleDownload = () => {
+
+    // }
+
     render () {
         return (
             <div>
@@ -42,12 +46,26 @@ class DumbledoorFunctionality extends React.Component {
                         display: this.state.displayCV
                     }}
                 >
-                    <Document file="/cv.pdf" >
+                    <Document file="/Camilla_Champion_de_Crespigny_CV.pdf" >
                         <Page pageNumber={1} 
                         width={800} 
                         />
                     </Document>
-                <button className="closePopUp" onClick={this.xClick}>x</button>
+                <button 
+                style={{
+                        position: "absolute",
+                        right: ".5%",
+                        top: ".2%"
+                    }}
+                onClick={this.xClick}>x</button>
+                <p><a href="/Camilla_Champion_de_Crespigny_CV.pdf"  
+                    style={{
+                        position: "absolute",
+                        right: "30px",
+                        top: ".2%", 
+                        color: "white"
+                    }}
+                download >Download</a></p>
                 </div>                
 
             </div>           
