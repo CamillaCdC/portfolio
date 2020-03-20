@@ -43,7 +43,9 @@ class DumbledoorFunctionality extends React.Component {
                     }}
                 >
                     <Document file="/cv.pdf" >
-                        <Page pageNumber={1} width={800} />
+                        <Page pageNumber={1} 
+                        width={800} 
+                        />
                     </Document>
                 <button className="closePopUp" onClick={this.xClick}>x</button>
                 </div>                
