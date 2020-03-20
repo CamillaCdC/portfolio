@@ -13,7 +13,7 @@ class Hedwig extends React.Component {
 
     handleClickHere = () => {
         this.setState({
-            detailsDisplay: "",
+            detailsDisplay: ""
         }) 
     }
 
