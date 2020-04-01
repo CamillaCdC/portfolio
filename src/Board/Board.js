@@ -2,9 +2,6 @@ import React from 'react'
 import BoardPiece from './BoardPiece'
 import Paths from './Paths.js'
 
-
-import '../App.css'
-
 export default function Board (props) {
     return (
         <svg >

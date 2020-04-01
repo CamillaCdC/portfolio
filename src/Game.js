@@ -2,7 +2,6 @@ import React from 'react'
 
 import Characters from './Characters/Characters'
 import Harry from './Characters/Harry'
-import './Characters/AllCharacters.css';
 import characters from './Characters/CharacterCoordinates'
 import checkCharacterPopUp from './Characters/CheckCharacterPopUp'
 
@@ -15,10 +14,12 @@ import HedwigFunctionality from './CharacterFunctionality/HedwigFunctionality'
 import Board from './Board/Board'
 import cobblesCoordinates from './Board/CobblesCoordinates'
 
-import KeyboardEventHandler from 'react-keyboard-event-handler';
+import KeyboardEventHandler from 'react-keyboard-event-handler'
 
-import './App.css'
+import './styles/App.css'
+import './styles/characters.css'
 
+import { Link } from "react-router-dom"
 
 class Game extends React.Component { 
 
@@ -158,10 +159,10 @@ class Game extends React.Component {
                     }} 
                 />  
                
-                <svg 
-                    className="board" 
-                > 
+                <svg className="board" > 
                     <Board />              
+                    
+                    <Characters charactersObject={characters}/>
 
                     <Harry 
                         onKeyDown={this.onKeyDown}
@@ -170,35 +171,25 @@ class Game extends React.Component {
                         popUpHarry={this.state.popUpHarry}
                         popUpInstrctions={this.state.popUpInstrctions}
                     />
-
-                    <Characters 
-                        charactersObject={characters}
-                    />
-               
                 </svg> 
+                    
+                    <Link to="/mv/home" className="muggleView">Muggle View</Link>
 
-                    <RonFunctionality 
-                        display={this.state.popUpRon}
-                    />  
-                    <LunaFunctionality
-                        display={this.state.popUpLuna}
-                    />
-                    <DumbledoorFunctionality
-                        display={this.state.popUpDumbledoor}
-                    />
-                    <HermioneFunctionality
-                        display={this.state.popUpHermione}
-                    />                     
-                    <HedwigFunctionality
-                        display={this.state.popUpHedwig}
-                    />
+                    <RonFunctionality display={this.state.popUpRon} />  
+                    <LunaFunctionality display={this.state.popUpLuna} />
+                    <DumbledoorFunctionality display={this.state.popUpDumbledoor} />
+                    <HermioneFunctionality display={this.state.popUpHermione} />                     
+                    <HedwigFunctionality display={this.state.popUpHedwig} />
 
                 <footer>
-                    <p><button onClick={() => {
-                        this.setState({
-                            popUpInstrctions: ""
-                        })
-                    }}>Instructions</button></p>
+                    <p
+                        className="instructions"
+                        onClick={() => {
+                            this.setState({
+                                popUpInstrctions: ""
+                            })
+                        }}
+                    >Instructions</p>
                     <p>|</p>
                     <p>&copy; Camilla Champion de Crespigny 2020</p>
                 </footer>

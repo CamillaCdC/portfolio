@@ -20,10 +20,6 @@ class DumbledoorFunctionality extends React.Component {
         })
     }
 
-    // handleDownload = () => {
-
-    // }
-
     render () {
         return (
             <div>
@@ -36,15 +32,8 @@ class DumbledoorFunctionality extends React.Component {
                     <p><button onClick={this.viewClick}>View it here</button></p>
                 </div>
 
-                <div 
-                    style={{ 
-                        position: "absolute",
-                        border: "2px solid black",
-                        top: 7,
-                        left: "80px",
-                        width: 804,
-                        display: this.state.displayCV
-                    }}
+                <div className="CV"
+                    style={{ display: this.state.displayCV }}
                 >
                     <Document file="/Camilla_Champion_de_Crespigny_CV.pdf" >
                         <Page pageNumber={1} 
@@ -52,20 +41,14 @@ class DumbledoorFunctionality extends React.Component {
                         />
                     </Document>
                 <button 
-                style={{
-                        position: "absolute",
-                        right: ".5%",
-                        top: ".2%"
-                    }}
-                onClick={this.xClick}>x</button>
-                <p><a href="/Camilla_Champion_de_Crespigny_CV.pdf"  
-                    style={{
-                        position: "absolute",
-                        right: "30px",
-                        top: ".2%", 
-                        color: "white"
-                    }}
-                download >Download</a></p>
+                    className="closeCV"
+                    onClick={this.xClick}
+                >x</button>
+                <p><a 
+                    href="/Camilla_Champion_de_Crespigny_CV.pdf" 
+                    className="downloadCV" 
+                    download 
+                >Download</a></p>
                 </div>                
 
             </div>           

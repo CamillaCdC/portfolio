@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 export default function PopUp (props) {
 
     return (
@@ -23,9 +22,7 @@ export default function PopUp (props) {
             >
                 {props.text}
             </text>
-
         </svg>
 
     )
-
 }

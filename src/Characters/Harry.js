@@ -99,11 +99,11 @@ export default function Harry (props) {
                     <tspan
                         x={`${popUp[0]}%`} 
                         dy="2.6%"
-                    >To see these instructions again, click the</tspan>
+                    >To see these instructions again, click </tspan>
                     <tspan
                         x={`${popUp[0]}%`} 
                         dy="2.6%"
-                    > Instructions button below the board.</tspan>
+                    > "Instructions" below the board.</tspan>
                     <tspan
                         x={`${popUp[0]}%`} 
                         dy="2.6%"

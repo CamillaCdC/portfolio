@@ -4,7 +4,7 @@ import RandomFacts from './RandomFacts'
 
 class LunaFunctionality extends React.Component {
     state = {
-        detailsDisplay: "none", 
+        detailsDisplay: "none"
     }
 
     xClick = () => {
@@ -20,6 +20,13 @@ class LunaFunctionality extends React.Component {
     }
 
     render () {
+
+        if (this.props.display === "none" && this.state.detailsDisplay === "") {
+            this.setState({
+                detailsDisplay: "none"
+            })
+        }
+
         return (
             <div>
                 <div
@@ -32,11 +39,11 @@ class LunaFunctionality extends React.Component {
                 </div>
             
                 <div
-                    className="detailsPopUp"
-                    style={{ display: this.state.detailsDisplay }}
+                    className="randomFactPopUp"
+                    style={{ 
+                        display: this.state.detailsDisplay }}
                 >
-                    <button className="closePopUp" onClick={this.xClick}>x</button>
-                    <p>Random Fact</p> 
+                    <button className="closePopUp closePopUpLuna" onClick={this.xClick}>x</button>
                     <p>{RandomFacts[[Math.floor(Math.random() * RandomFacts.length)]]}</p>
                 </div>
             

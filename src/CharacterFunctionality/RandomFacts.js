@@ -8,7 +8,11 @@ const RandomFacts = [
     "Camilla spent three weeks in Da Nang, Vietnam with her university.",
     "Camilla went to boarding school from year 7 to year 12.",
     "Camilla can play the saxophone.",
-    "Camilla can play the piano."
+    "Camilla can play the piano.", 
+    "Camilla has seen the musical Matilda three times.",
+    "Camilla can speak French.", 
+    "Camilla isn't allergic to anything.", 
+    "Camilla never had the Chickenpox."
 ];
 
 export default RandomFacts;

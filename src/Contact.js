@@ -32,7 +32,7 @@ export default function Contact() {
             setMessage("Error");
         }
     };
-
+    
     return (
         <div className="App">
             <form

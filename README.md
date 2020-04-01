@@ -25,3 +25,7 @@ I wanted to create a fun interactive portfolio website in React, also trying my 
 * Plain view of the information in this website 
 * Button to toggle view 
 
+### Bug fixes
+
+* Contact form not resetting after it is sent once
+

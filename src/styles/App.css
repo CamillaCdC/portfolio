@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+.game {
+    width: 960px;
+    margin: 10px auto;
+    position: relative;
+}
+
+.board {
+    width: 960px;
+    height: 690px;
+    z-index: -1;
+}
+
+.muggleView {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3px;
+    text-decoration: none;
+    background: white;
+    color: black;
+    box-shadow: -1px 1px 5px grey;
+}
+
+.muggleView:hover {
+    background-color: black;
+    color: white;
+} 
+
+.muggleView:active {
+    box-shadow: -1px 1px 5px black;
+}
+
+form p {
+    margin: 15px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer p {
+    padding: 0 10px;
+}
+
+.instructions {
+    cursor: pointer;
+}
