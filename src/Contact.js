@@ -69,7 +69,7 @@ export default function Contact() {
                 <p>
                     <textarea
                         rows="12"
-                        cols="85"
+                        cols="50"
                         name="message"
                         placeholder="Type your message here..."
                         onChange={handleInput}
